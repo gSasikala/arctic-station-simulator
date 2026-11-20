@@ -13,7 +13,7 @@ Before running this project, ensure you have the following installed:
   
 ## A. Install and run
 
-1. Select **Download ZIP** from the dropdown menu.
+1. Select **Download ZIP** from the dropdown menu **Code** button at the top right of this GitHub repository.
 2. Locate the downloaded `.zip` file on your computer and **extract (unzip)** all files into a folder.
 3. Extract `arctic-station-simulator.zip` and open a terminal in the extracted `arctic-station-simulator` folder.
 4. Open your terminal or command prompt and navigate into the extracted folder:
