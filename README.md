@@ -9,8 +9,8 @@ This offline Python simulator models a diesel generator (G101), one bus, a circu
 
 Before running this project, ensure you have the following installed refer ([requirements.txt](./requirements.txt)):
 * **Python:** Version 3.10 or higher ([Download Python](https://python.org))
-* **Jupyter:** Jupyter Notebook or JupyterLab (if running `.ipynb` files) and chart dependencies:
-* 
+* **Jupyter:** Jupyter Notebook or JupyterLab (if running `.ipynb` files) and chart dependencies
+  
 ## A. Install and run
 
 1. Extract `arctic-station-simulator.zip` and open a terminal in the extracted `arctic-station-simulator` folder.
