@@ -7,27 +7,37 @@ This offline Python simulator models a diesel generator (G101), one bus, a circu
 <br>
 ### Prerequisites
 
-Before running this project, ensure you have the following installed refer ([requirements.txt](./requirements.txt)):
+Before running this project, ensure you have the following installed:
 * **Python:** Version 3.10 or higher ([Download Python](https://python.org))
 * **Jupyter:** Jupyter Notebook or JupyterLab (if running `.ipynb` files) and chart dependencies
   
 ## A. Install and run
 
-1. Extract `arctic-station-simulator.zip` and open a terminal in the extracted `arctic-station-simulator` folder.
-2. Open `arctic-station-simulator.ipynb`, select a Python 3 kernel if prompted, and choose **Run → Run All Cells**.  
-3. In the notebook's **Run settings** cell, change `DURATION_S` or `SCENARIO` and rerun that cell. See [the user guide](USER_GUIDE.md) for expected timings and graph interpretation.
+1. Select **Download ZIP** from the dropdown menu.
+2. Locate the downloaded `.zip` file on your computer and **extract (unzip)** all files into a folder.
+3. Extract `arctic-station-simulator.zip` and open a terminal in the extracted `arctic-station-simulator` folder.
+4. Open your terminal or command prompt and navigate into the extracted folder:
+   ```bash
+   cd path/to/your-extracted-folder
+   ```
+5. Install the required dependencies listed in [`requirements.txt`](./requirements.txt):
+   ```bash
+   pip install -r requirements.txt
+   ```
+6. Open `arctic-station-simulator.ipynb`, select a Python 3 kernel if prompted, and choose **Run → Run All Cells**.  
+7. In the notebook's **Run settings** cell, change `DURATION_S` or `SCENARIO` and rerun that cell. See [the user guide](USER_GUIDE.md) for expected timings and graph interpretation.
 
 ## B. System Architecture
 <img width="3986" height="2076" alt="system-architecture" src="https://github.com/user-attachments/assets/05ccb0a3-bf89-4f80-9806-909b1d203968" />
 
 ## C. Model assumptions
 
-| G101 | CB101 | Change per second |
-| --- | --- | ---: |
-| ON | CLOSED | −0.05 Hz |
-| ON | OPEN | +0.12 Hz |
-| OFF | CLOSED | −0.15 Hz |
-| OFF | OPEN | 0.00 Hz |
+| G101 | CB101 | Change per second | Modeled effect
+| --- | --- | ---: | --- |
+| ON | CLOSED | −0.05 Hz | Load draws power |
+| ON | OPEN | +0.12 Hz | No load frequency recovery |
+| OFF | CLOSED | −0.15 Hz | Stored energy drains |
+| OFF | OPEN | 0.00 Hz |  Modeled frequency holds |
 
 - **Limits:** Simulations start at 50.00 Hz. The 49.50–50.50 Hz band is inclusive. Calculations use integer hundredths of a hertz, so reaching 49.50 Hz exactly does not trigger an accidental floating-point comparison error.
 - **Timing:** At integer time `t`, the scenario selects G101's state, FS101 takes a sample, and the controller chooses CB101 for `[t, t+1)`. The true frequency changes at the specified constant rate during the interval. The final frequency sample at `t = DURATION_S` is recorded without another control decision.
