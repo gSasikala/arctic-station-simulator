@@ -3,25 +3,19 @@ A one-second simulator for a station with one generator and one breaker.
 <br><br>
 This offline Python simulator models a diesel generator (G101), one bus, a circuit breaker (CB101), station load (L101), and the frequency sensor (FS101). It is a training tool for comparing normal breaker cycling with a false under-frequency reading and a generator outage. It does not connect to equipment or configure real protection.
 
+## Getting Started
+<br>
+### Prerequisites
+
+Before running this project, ensure you have the following installed refer ([requirements.txt](./requirements.txt)):
+* **Python:** Version 3.10 or higher ([Download Python](https://python.org))
+* **Jupyter:** Jupyter Notebook or JupyterLab (if running `.ipynb` files) and chart dependencies:
+* 
 ## A. Install and run
 
 1. Extract `arctic-station-simulator.zip` and open a terminal in the extracted `arctic-station-simulator` folder.
-2. With Python 3.10 or newer, install the notebook and chart dependencies:
-
-   ```bash
-   python -m venv .venv
-   ```
-
-   Activate it using `source .venv/bin/activate` on macOS/Linux, or `.\.venv\Scripts\Activate.ps1` in Windows PowerShell. If Windows blocks activation, use `.\.venv\Scripts\python.exe` in place of `python` in the commands below.
-
-   ```bash
-   python -m pip install -r requirements.txt
-   python -m jupyterlab
-   ```
-
-3. Open `arctic-station-simulator.ipynb`, select a Python 3 kernel if prompted, and choose **Run → Run All Cells**.  
-
-4. In the notebook's **Run settings** cell, change `DURATION_S` or `SCENARIO` and rerun that cell. See [the user guide](USER_GUIDE.md) for expected timings and graph interpretation.
+2. Open `arctic-station-simulator.ipynb`, select a Python 3 kernel if prompted, and choose **Run → Run All Cells**.  
+3. In the notebook's **Run settings** cell, change `DURATION_S` or `SCENARIO` and rerun that cell. See [the user guide](USER_GUIDE.md) for expected timings and graph interpretation.
 
 ## B. System Architecture
 <img width="3986" height="2076" alt="system-architecture" src="https://github.com/user-attachments/assets/05ccb0a3-bf89-4f80-9806-909b1d203968" />
